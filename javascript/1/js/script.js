@@ -18,12 +18,36 @@ let appData = {
     expensePrice,
     i = 0;
 
-while (i < 2) {
+// while (i < 2) {
+//   expenseCaption = prompt("Введите обязательную статью расходов в этом месяце", "");
+//   expensePrice   = prompt("Во сколько обойдется?", "");
+//   appData.expenses[expenseCaption] = expensePrice;
+//   i++;
+// }
+
+// for (let j = 0; j < 2; j++) {
+//   expenseCaption = prompt("Введите обязательную статью расходов в этом месяце", "");
+//   expensePrice   = prompt("Во сколько обойдется?", "");
+//   appData.expenses[expenseCaption] = expensePrice;
+// }
+
+let k = 0;
+do {
   expenseCaption = prompt("Введите обязательную статью расходов в этом месяце", "");
   expensePrice   = prompt("Во сколько обойдется?", "");
-  appData.expenses.expenseCaption = expensePrice;
-  i++;
+  if (   typeof(expenseCaption) === 'string'
+      && length(expenseCaption) > 3
+      && typeof(expensePrice) === 'string'
+      && length(expensePrice) > 0) {
+      appData.expenses[expenseCaption] = expensePrice;
+      k++;
+    } else {
+      alert('Неверно введена статья расходов');
+    }
 }
+while (k < 2);
+
+
 budgetPerDay = appData.budget / 30;
 alert( +budgetPerDay.toFixed(2));
 
